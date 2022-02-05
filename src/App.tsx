@@ -1,14 +1,19 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import MovieForm from './pages/MovieForm';
+import MovieList from './pages/MovieList';
 
 function App() {
   return (
-    <div className="App">
-      <header>
+    <BrowserRouter>
         <Navbar />
-      </header>
-    </div>
+        <Routes>
+          <Route path="/" element={<MovieList />} />
+          <Route path="/form" element={<MovieForm />} />
+          <Route path=":movieId" element={<MovieForm />} />
+        </Routes>
+    </BrowserRouter>
   );
 }
 
